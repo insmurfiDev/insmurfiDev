@@ -1,0 +1,136 @@
+.section__title {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.aboutSection {
+    margin-top: 15px;
+    width: 100%;
+    background: var(--main-color-2);
+    padding: 36px 12px;
+}
+
+.aboutSection__inner {
+    display: flex;
+    align-items: start;
+    gap: 21px;
+}
+.aboutSection__text {
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.skillsSection {
+    background: var(--main-color-3);
+    padding: 36px 12px;
+}
+
+.skillsSection__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.skillsSection__item {
+    display: block;
+    width: 100%;
+    background: var(--main-color-2);
+    aspect-ratio: 1/1;
+    padding: 10px;
+    box-shadow: 0 0 10px var(--bs-main-color);
+    object-fit: contain;
+}
+
+.listsSection {
+    padding: 36px 12px;
+}
+
+.listsSection__inner {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.listsSection__ul {
+    border: 1px solid var(--main-color-3);
+    padding: 16px 28px;
+    width: 30%;
+    box-shadow: 0 0 10px var(--bs-main-color);
+}
+
+.listsSection__li {
+    margin-bottom: 7px;
+    background: var(--main-color-2);
+    padding: 7px;
+    border-radius: 15px 0 15px 0;
+}
+
+.listsSection__ul-title {
+    margin-bottom: 7px;
+}
+
+.importantSection {
+    background: var(--main-color-2);
+    padding: 36px 12px;
+}
+
+.importantSection__text {
+    text-align: center;
+}
+
+.importantSection__btn {
+    border: 1px solid var(--main-color-3);
+    background: var(--main-color);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 13px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+@keyframes scaleIn{
+    from{
+        scale: 0;
+    }
+    to{
+        scale: 1;
+    }
+}
+
+.popup{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup__content{
+    width: 50%;
+    background: var(--main-color-3);
+    box-shadow: 0 0 10px var(--bs-main-color);
+    padding: 24px 26px;
+    animation: scaleIn .5s forwards;
+}
+.popup__title{
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+.popup__close{
+    background: var(--danger-color);
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    font-family: inherit;
+    border-radius: 5px;
+    margin-top: 5px;
+    float: right;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+.popup__close:hover{
+    background: var(--danger-color-2);
+}

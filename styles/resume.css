@@ -1,0 +1,23 @@
+.experience{
+    margin-top: 50px;
+    background: var(--main-color-3);
+    padding: 36px 12px;
+}
+.experience__table-title{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 36px;
+}
+.experience__table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.experience__table-th{
+    padding: 21px 14px;
+    background: var(--main-color-2);
+    border: 1px solid var(--main-color);
+}
+.experience__table-td{
+    padding: 21px 14px;
+    border: 1px solid var(--main-color);
+}
