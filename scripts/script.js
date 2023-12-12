@@ -28,7 +28,10 @@ const openPopup = async () => {
     document.getElementById('wrapper').append(popup)
 }
 const closePopup = () => {
-    document.querySelector('.popup').remove()
+    document.querySelector('.popup').classList.add('hide')
+    setTimeout(function(){
+        document.querySelector('.popup').remove()
+    }, 400)
 }
 
 document.querySelectorAll('.form__section-radio').forEach(function (radio) {
@@ -72,6 +75,8 @@ if (formSectionSelect) {
 const form = document.querySelector('form')
 if (form) {
     const raiseValidateError = (msg, input) => {
+        input.classList.add('error')
+        input.classList.remove('success')
         console.log(msg)
     }
     const lettersRegexp = /^[a-zа-яё]+$/i
@@ -79,31 +84,39 @@ if (form) {
     const phoneRegex = /^\+7\d{10}$/
     form.addEventListener('submit', function (e) {
         e.preventDefault()
+        let canSubmit = true
         const toValidate = document.querySelectorAll('.validate')
         toValidate.forEach(function (item) {
+            item.classList.add('success')
             const value = item.value
             if (item.classList.contains('required')) {
                 if (value === "") {
                     raiseValidateError("Заполните поле", item)
+                    canSubmit = false
                 }
             }
             if (item.classList.contains('lettersRegexp')) {
                 if (!lettersRegexp.test(value)) {
                     raiseValidateError("Поле должно содержать только буквы", item)
+                    canSubmit = false
                 }
             }
             if (item.classList.contains('emailRegexp')) {
                 if (!emailRegex.test(value)) {
                     raiseValidateError("Поле должно соответствовать формату Email", item)
+                    canSubmit = false
                 }
             }
             if (item.classList.contains('phoneRegexp')) {
                 if (!phoneRegex.test(value)) {
                     raiseValidateError("Поле должно соответствовать формату номера телефона +7", item)
+                    canSubmit = false
                 }
             }
         })
-
+        if(canSubmit){
+            form.submit()
+        }
     })
 
     const clearBtn = document.querySelector('.form__btns-clear')
@@ -145,7 +158,7 @@ if (slideBtns) {
             slide()
         })
     })
-
+    //
     const newTodo = document.querySelector('.todo__btn-add')
     const clearTodo = document.querySelector('.todo__btn-clear')
 
@@ -202,7 +215,7 @@ if (slideBtns) {
     })
 
     renderTodoItems()
-
+    //
 
     let currentMinutesTmp = localStorage.getItem('currentMinutesTmp') ? Number(localStorage.getItem('currentMinutesTmp')) : 0
     let currentMinutes = currentMinutesTmp

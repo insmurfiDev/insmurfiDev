@@ -94,3 +94,9 @@
 .hidden{
     display: none;
 }
+.validate.error{
+    border: 1px solid var(--danger-color);
+}
+.validate.success{
+    border: 1px solid var(--success-color);
+}
